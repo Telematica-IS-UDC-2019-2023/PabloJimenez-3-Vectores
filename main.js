@@ -8,11 +8,11 @@ class Vector {
     llenar(arreglo){
 
         this.arreglo = arreglo;
-        for(let i=0; i<=9; i++){
+        for(let i=0; i<=9; i++){ // Llena el vector con 10 numeros
             arreglo[i]= i + 1; 
         } 
 
-        for(let d=0; d<=arreglo.length; d++){
+        for(let d=0; d<=arreglo.length; d++){ // Elimina los numeros impares
             if ((arreglo[d] % 2) !=0){
              arreglo.splice(d,1);
             }
@@ -21,12 +21,12 @@ class Vector {
     }
     
     probar(){
-        return (this.arreglo)
+        return (this.arreglo) // Mostrar el vector en consola
     }
 
     girarDerecha(){
 
-        let movRight = this.arreglo[(this.arreglo.length -1)]
+        let movRight = this.arreglo[(this.arreglo.length -1)] // Gira el ultimo numero del vector a la derecha, mandandolo al inicio
         this.arreglo.splice(0,0, movRight);
         this.arreglo.splice((this.arreglo.length -1),1);
         return (this.arreglo);
@@ -34,14 +34,14 @@ class Vector {
 
     girarIzquierda(){
 
-        let movLeft = this.arreglo[0];
+        let movLeft = this.arreglo[0]; // Gira el primer numero del vector a la izquierda, mandandolo al final
         this.arreglo.splice(this.arreglo.length,0, movLeft);
         this.arreglo.splice(0,1);
         return (this.arreglo);
     }
 
     invertir(){
-        for(let i =0; i<=this.arreglo.length;i++){
+        for(let i =0; i<=this.arreglo.length;i++){ // Invierte el orden del vector, haciendo que empiece desde el ultimo hasta el primero 
             let turn = this.arreglo[(this.arreglo.length -1)]
             this.arreglo.splice(i,0,turn);
             this.arreglo.splice((this.arreglo.length -1),1);
@@ -50,6 +50,7 @@ class Vector {
     }
     
 }
+
 let play = new Vector
 play.llenar(new Array);
 console.log(`Mostrando unicamente numeros pares: ${play.probar()}`);
